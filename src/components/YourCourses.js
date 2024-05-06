@@ -2,10 +2,14 @@ import React, { useEffect, useState } from "react";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import { fetchObjectsFromFirestore } from "../actions/actions";
+import { initFlowbite } from "flowbite";
 
 export default function YourCourses() {
   const object = useSelector((state) => state.courseModel);
   const loading = useSelector((state) => state.loading);
+  useEffect(() => {
+    initFlowbite();
+  }, []);
   const dispatch = useDispatch();
   useEffect(() => {
     dispatch(fetchObjectsFromFirestore());
@@ -188,7 +192,7 @@ export default function YourCourses() {
         </div>
       </aside>
       <div className="p-4 sm:ml-64 bg-[#111827]">
-        <h1 className="ml-16 text-white mt-20 font-bold text-3xl mb-[-30px]">
+        <h1 className="text-center md:text-left md:ml-16 text-white mt-20 font-bold text-3xl mb-[-30px]">
           My Courses
         </h1>
         {loading && (
