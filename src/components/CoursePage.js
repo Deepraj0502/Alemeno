@@ -202,9 +202,21 @@ export default function CoursePage() {
               </p>
               <p className="text-white text-lg flex gap-2 mt-5">
                 <span className="font-bold">Enrollment Status:</span>{" "}
-                <span className="text-green-400">
-                  {location.state.data.enrollmentStatus}
-                </span>
+                {location.state.data.enrollmentStatus === "Open" && (
+                  <span className="text-green-400">
+                    {location.state.data.enrollmentStatus}
+                  </span>
+                )}
+                {location.state.data.enrollmentStatus === "Closed" && (
+                  <span className="text-red-400">
+                    {location.state.data.enrollmentStatus}
+                  </span>
+                )}
+                {location.state.data.enrollmentStatus === "'In Progress" && (
+                  <span className="text-yellow-400">
+                    {location.state.data.enrollmentStatus}
+                  </span>
+                )}
               </p>
               <p className="text-white text-lg flex gap-2 mt-5">
                 {" "}
